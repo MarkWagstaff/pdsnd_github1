@@ -166,7 +166,7 @@ def trip_duration_stats(df):
     print("\nThis took %s seconds." % round_decimal(time.time() - start_time))
     print('-'*40)
 
-
+# define user usage
 def user_stats(df):
     """Displays statistics on bikeshare users."""
 
@@ -203,7 +203,7 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
+# define main function
 def main():
     while True:
         city, month, day = get_filters()
