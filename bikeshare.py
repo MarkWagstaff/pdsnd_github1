@@ -6,6 +6,10 @@ CITY_DATA = { 'Chicago': 'chicago.csv',
               'New York City': 'new_york_city.csv',
               'Washington': 'washington.csv' }
 
+MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'All']
+DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'All']
+
+
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -27,20 +31,18 @@ def get_filters():
         break
         
     while True:
-        month = input("\nWhich month would you like to view? January, February, March, April, May, June or type 'all'.\n").lower()
-        if month not in ('january', 'february', 'march', 'april', 'may', 'june', 'all'):
-            print("Check your input and try again.")
-            continue
-        else:
+        month = input(f"\nWhich month would you like to view? {', '.join(MONTHS)}.\n").title()
+        if month in MONTHS:
             break
+        else:
+            print("Check your input and try again.")
 
     while True:
-        day = input("\nWhich day of the week would you like to view? Please enter: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or type 'all'.\n").lower()
-        if day not in ('sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'all'):
-            print("Check your input and try again.")
-            continue
-        else:
+        day = input(f"\nWhich day of the week would you like to view? {', '.join(DAYS)}.\n").title()
+        if day in DAYS:
             break
+        else:
+            print("Check your input and try again.")
 
     return city, month, day
 
