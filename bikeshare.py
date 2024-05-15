@@ -108,23 +108,20 @@ def round_decimal(decimal, decimal_places=1):
 
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel."""
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    if 'month' not in df.columns:
+    try:
+        popular_month = df['month'].mode()[0]
+        print('Most Common Month:', popular_month)
+    except KeyError:
         print("No data available for the selected month.")
-        return
 
-    popular_month = df['month'].mode()[0]
-    print('Most Common Month:', popular_month)
-
-    if 'day_of_week' not in df.columns:
+    try:
+        popular_day = df['day_of_week'].mode()[0]
+        print('Most Common Day:', popular_day)
+    except KeyError:
         print("No data available for the selected day of the week.")
-        return
-
-    popular_day = df['day_of_week'].mode()[0]
-    print('Most Common Day:', popular_day)
 
     df['hour'] = df['Start Time'].dt.hour
     popular_hour = df['hour'].mode()[0]
@@ -132,7 +129,6 @@ def time_stats(df):
 
     print("\nThis took %s seconds." % round(time.time() - start_time))
     print('-'*40)
-
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
