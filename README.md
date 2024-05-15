@@ -12,7 +12,7 @@ Project utilises bikeshare company data and python code in order to analyse bike
 
 ### Files used
 
-bikeshare.py
+bikeshare.py; chicago.csv; washington.csv; new york city.csv
 
 ### Credits
 
